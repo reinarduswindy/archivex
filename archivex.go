@@ -210,6 +210,10 @@ func (z *ZipFile) AddAll(dir string, includeCurrentFolder bool) error {
 	})
 }
 
+func (z *ZipFile) GetFileInfo() (os.FileInfo, error) {
+	return z.file.Stat()
+}
+
 //Close close the zip file
 func (z *ZipFile) Close() error {
 	err := z.Writer.Close()
